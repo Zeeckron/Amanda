@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+  body {
+    font-family: 'Dancing Script', cursive;
+    background-color: #fff;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .opening-crawl-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .opening-crawl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    color: #000;
+    padding: 30px;
+    border: 2px solid #8b0000; /* Cor da borda: Maroon */
+    border-radius: 15px; /* Borda arredondada */
+    white-space: pre-line;
+    text-align: center;
+    line-height: 1.5;
+    animation: crawl 60s linear infinite;
+  }
+
+  .hogwarts-seal {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease-out; /* Efeito de transição suave */
+  }
+
+  @keyframes crawl {
+    0% {
+      transform: translate(-50%, 100%);
+    }
+    100% {
+      transform: translate(-50%, -100%);
+    }
+  }
+</style>
+<title>Feliz Aniversário!</title>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="img/harry.mp3" type="audio/mp3">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+  <div class="opening-crawl-container">
+    <img src="img/lufa.png" alt="Selo de Hogwarts" class="hogwarts-seal" id="hogwarts-seal">
+    <div class="opening-crawl">
+      Querido(a) Bruxo(a),
+      <br>
+      Hoje celebramos um dia mágico, afinal é o seu aniversário!
+      <br>
+      Que a jornada da sua vida seja tão emocionante quanto uma partida de Quadribol,
+      e que você encontre tesouros de sabedoria tão valiosos quanto as poções do Professor Snape.
+      <br>
+      Nas quatro casas de Hogwarts, cada bruxo e bruxa se une para te desejar muitas alegrias,
+      momentos encantados e aventuras que te deixem com os olhos brilhando como estrelas no céu.
+      <br>
+      Feliz Aniversário, e lembre-se sempre: as melhores histórias são as que nós mesmos escrevemos.
+      <br>
+      Comemore este dia mágico com alegria e magia, assim como você traz magia para a vida de todos nós.
+      <br>
+      - Seu Nome
+    </div>
+  </div>
+  <script>
+    const openingCrawl = document.querySelector('.opening-crawl');
+    const hogwartsSeal = document.getElementById('hogwarts-seal');
+
+    window.addEventListener('scroll', () => {
+      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      const sealOffset = (scrollPercentage - 50) * 2; // Ajuste o valor para controlar a velocidade da paralaxe
+      hogwartsSeal.style.transform = `translateY(${sealOffset}px)`;
+    });
+  </script>
+</body>
+</html>
